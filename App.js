@@ -7,8 +7,10 @@ import Addpayment from "./screens/StudentPayment/Addpayment";
 import PaymentRegi from "./screens/StudentPayment/PaymentRegi";
 import PaymentSuccess from "./screens/StudentPayment/PaymentSuccess";
 
-import { StyleSheet, Text } from 'react-native';
+// Piyadali D.S.P. - Class Details
+import addClass from "./screens/classDetails/addClass";
 
+import { StyleSheet, Text } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -27,6 +29,8 @@ export default function App() {
           <Stack.Screen name="Add payment" component={Addpayment} />
           <Stack.Screen name="std pay success" component={PaymentSuccess} />
 
+          {/* Class Details - Piyadali D.S.P. */}
+          <Stack.Screen name="Add Class Information" component={addClass} />
 
 
 
