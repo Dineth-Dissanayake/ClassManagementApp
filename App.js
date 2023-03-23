@@ -6,6 +6,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Addpayment from "./screens/StudentPayment/Addpayment";
 import PaymentRegi from "./screens/StudentPayment/PaymentRegi";
 import PaymentSuccess from "./screens/StudentPayment/PaymentSuccess";
+import ViewStdPayDetails from "./screens/AdminStudentPayment/ViewStdPayDetails";
+import UpdateStdPayDetails from "./screens/AdminStudentPayment/UpdateStdPayDetails";
+
+
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -23,11 +27,13 @@ export default function App() {
         <Stack.Navigator>
 
           {/* student payment- shamali */}
+          <Stack.Screen name="admin stdpay" component={ViewStdPayDetails} />
           <Stack.Screen name="std regi pay" component={PaymentRegi} />
           <Stack.Screen name="Add payment" component={Addpayment} />
           <Stack.Screen name="std pay success" component={PaymentSuccess} />
+          <Stack.Screen name="admin update" component={UpdateStdPayDetails} />
 
-
+          
 
 
 
