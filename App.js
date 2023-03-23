@@ -10,11 +10,11 @@ import ViewStdPayDetails from "./screens/AdminStudentPayment/ViewStdPayDetails";
 import UpdateStdPayDetails from "./screens/AdminStudentPayment/UpdateStdPayDetails";
 
 
-
 // Piyadali D.S.P. - Class Details
 import addClass from "./screens/classDetails/addClass";
 import addClassNext from "./screens/classDetails/addClassNext";
 import classAddSuccess from "./screens/classDetails/classAddSuccess";
+import updateClassInfo from "./screens/classDetails/updateClassInfo";
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -35,15 +35,15 @@ export default function App() {
           <Stack.Screen name="std regi pay" component={PaymentRegi} />
           <Stack.Screen name="Add payment" component={Addpayment} />
           <Stack.Screen name="std pay success" component={PaymentSuccess} />
-          <Stack.Screen name="admin update" component={UpdateStdPayDetails} />
-
-          
+          <Stack.Screen name="admin update" component={UpdateStdPayDetails} />          
 
 
           {/* Class Details - Piyadali D.S.P. */}
           <Stack.Screen name="Add Class Information" component={addClass} />
           <Stack.Screen name="Add Class Next" component={addClassNext} />
           <Stack.Screen name="Class Info Add Success" component={classAddSuccess} />
+          <Stack.Screen name="Update Class Info" component={updateClassInfo} />
+
           main
 
         </Stack.Navigator>
