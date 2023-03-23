@@ -174,20 +174,6 @@ export default function LoginPage() {
                         onChangeText={(val) => handleChangeText("time", val)}
                     ></TextInput>
 
-<Text style={styles.text}>Day Of Class:</Text>
-                    {/* input fields  */}
-                    <TextInput
-                        style={{
-                            borderColor: "#67afff",
-                            borderWidth: 1.5,
-                            borderRadius: 10,
-                            padding: 5,
-                            paddingLeft: 10,
-                        }}
-                        placeholder="Input day"
-                        onChangeText={(val) => handleChangeText("day", val)}
-                    ></TextInput>
-
                     <Text style={styles.text}>Hall Number:</Text>
                     {/* input fields  */}
                     <TextInput

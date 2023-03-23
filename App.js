@@ -15,6 +15,8 @@ import addClass from "./screens/classDetails/addClass";
 import addClassNext from "./screens/classDetails/addClassNext";
 import classAddSuccess from "./screens/classDetails/classAddSuccess";
 import updateClassInfo from "./screens/classDetails/updateClassInfo";
+import viewAdminClass from "./screens/classDetails/viewAdminClass";
+import viewClassClient from "./screens/clientClass/viewClassClient";
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -43,6 +45,8 @@ export default function App() {
           <Stack.Screen name="Add Class Next" component={addClassNext} />
           <Stack.Screen name="Class Info Add Success" component={classAddSuccess} />
           <Stack.Screen name="Update Class Info" component={updateClassInfo} />
+          <Stack.Screen name="View Class Info" component={viewAdminClass} />
+          <Stack.Screen name="View Client Class Info" component={viewClassClient} />
 
           main
 
