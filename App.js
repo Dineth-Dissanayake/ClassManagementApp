@@ -9,6 +9,8 @@ import PaymentSuccess from "./screens/StudentPayment/PaymentSuccess";
 
 // Piyadali D.S.P. - Class Details
 import addClass from "./screens/classDetails/addClass";
+import addClassNext from "./screens/classDetails/addClassNext";
+import classAddSuccess from "./screens/classDetails/classAddSuccess";
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -31,9 +33,9 @@ export default function App() {
 
           {/* Class Details - Piyadali D.S.P. */}
           <Stack.Screen name="Add Class Information" component={addClass} />
-
-
-
+          <Stack.Screen name="Add Class Next" component={addClassNext} />
+          <Stack.Screen name="Class Info Add Success" component={classAddSuccess} />
+          
 
         </Stack.Navigator>
       </NavigationContainer>
