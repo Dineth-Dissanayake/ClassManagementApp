@@ -212,11 +212,11 @@ export default function LoginPage() {
                     >
                         <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }} >
                             <Icon
-                                name="check-square"
+                                name="arrow-circle-right"
                                 size={20}
                                 color="white"
                             /> &nbsp;
-                            SUBMIT
+                            PROCEED TO NEXT
                         </Text>
                     </TouchableOpacity>
                 </View>
