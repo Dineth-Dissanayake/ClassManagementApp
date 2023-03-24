@@ -11,7 +11,7 @@ import UpdateStdPayDetails from "./screens/AdminStudentPayment/UpdateStdPayDetai
 import PaymentSplash from "./screens/StudentPayment/PaymentSplash";
 
 
-// Piyadali D.S.P. - Class Details
+// IT20153236 - Piyadali D.S.P. - Class Details
 import addClass from "./screens/classDetails/addClass";
 import addClassNext from "./screens/classDetails/addClassNext";
 import classAddSuccess from "./screens/classDetails/classAddSuccess";
@@ -44,7 +44,7 @@ export default function App() {
           <Stack.Screen name="admin update" component={UpdateStdPayDetails} />          
 
 
-          {/* Class Details - Piyadali D.S.P. */}
+          {/* Class Details - IT20153236 - Piyadali D.S.P. */}
           <Stack.Screen name="splash class" component={classSplash} />
           <Stack.Screen name="Add Class Information" component={addClass} />
           <Stack.Screen name="Add Class Next" component={addClassNext} />
