@@ -8,6 +8,7 @@ import PaymentRegi from "./screens/StudentPayment/PaymentRegi";
 import PaymentSuccess from "./screens/StudentPayment/PaymentSuccess";
 import ViewStdPayDetails from "./screens/AdminStudentPayment/ViewStdPayDetails";
 import UpdateStdPayDetails from "./screens/AdminStudentPayment/UpdateStdPayDetails";
+import PaymentSplash from "./screens/StudentPayment/PaymentSplash";
 
 
 // Piyadali D.S.P. - Class Details
@@ -32,7 +33,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
 
-          {/* student payment- shamali */}
+          {/* student payment- it20148218 Dilrukshi M.G.S */}
+          <Stack.Screen name="splash" component={PaymentSplash} />
           <Stack.Screen name="admin stdpay" component={ViewStdPayDetails} />
           <Stack.Screen name="std regi pay" component={PaymentRegi} />
           <Stack.Screen name="Add payment" component={Addpayment} />
