@@ -62,11 +62,16 @@ export default function UpdateUser({ route }) {
                 day: data.day,
                 time: data.time,
                 hallNo: data.hallNo,
+                subjcode: data.subjcode,
+                classadmFee: data.classadmFee,
+                classfee: data.classfee,
+                startDate: data.startDate,
+               
 
             });
             if (updateDoc) {
                 ToastAndroid.show("Class Information Updated Successfully!", ToastAndroid.SHORT);
-                navigation.navigate("View Class");
+                navigation.navigate("Update success");
             }
         } catch (e) {
             console.error("Error In Data Insertion: ", e);
@@ -112,6 +117,7 @@ export default function UpdateUser({ route }) {
                         }}
                         keyboardType="subjectName"
                         placeholder="Input Subject Name"
+                        value={data.subjectName}
                         onChangeText={(val) => handleChangeText("subjectName", val)}
                     ></TextInput>
                     {/* lables */}
@@ -125,7 +131,9 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="grade"
                         placeholder="Input Grade"
+                        value={data.grade}
                         onChangeText={(val) => handleChangeText("grade", val)}
                     ></TextInput>
 
@@ -139,7 +147,9 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="classType"
                         placeholder="Input Class Type"
+                        value={data.classType}
                         onChangeText={(val) => handleChangeText("classType", val)}
                     ></TextInput>
 
@@ -153,7 +163,9 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="teacherName"
                         placeholder="Input Teacher's Name"
+                        value={data.teacherName}
                         onChangeText={(val) => handleChangeText("teacherName", val)}
                     ></TextInput>
 
@@ -167,7 +179,9 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="day"
                         placeholder="Input day"
+                        value={data.day}
                         onChangeText={(val) => handleChangeText("day", val)}
                     ></TextInput>
 
@@ -181,7 +195,9 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="time"
                         placeholder="Input Time Duration"
+                        value={data.time}
                         onChangeText={(val) => handleChangeText("time", val)}
                     ></TextInput>
                     
@@ -195,9 +211,70 @@ export default function UpdateUser({ route }) {
                             padding: 5,
                             paddingLeft: 10,
                         }}
+                        keyboardType="hallNo"
                         placeholder="Input Hall Number"
+                        value={data.hallNo}
                         onChangeText={(val) => handleChangeText("hallNo", val)}
                     ></TextInput>
+  <Text style={styles.text}>Subject Code:</Text>
+<TextInput
+                        style={{
+                            borderColor: "#67afff",
+                            borderWidth: 1.5,
+                            borderRadius: 10,
+                            padding: 5,
+                            paddingLeft: 10,
+                        }}
+                        keyboardType="subjcode"
+                        placeholder="Input Hall Number"
+                        value={data.subjcode}
+                        onChangeText={(val) => handleChangeText("subjcode", val)}
+                    ></TextInput>
+  <Text style={styles.text}>Class Admission Fee:</Text>
+<TextInput
+                        style={{
+                            borderColor: "#67afff",
+                            borderWidth: 1.5,
+                            borderRadius: 10,
+                            padding: 5,
+                            paddingLeft: 10,
+                        }}
+                        keyboardType="hallNo"
+                        placeholder="Input Hall Number"
+                        value={data.classadmFee}
+                        onChangeText={(val) => handleChangeText("classadmFee", val)}
+                    ></TextInput>
+  <Text style={styles.text}>Monthly Class Fee:</Text>
+<TextInput
+                        style={{
+                            borderColor: "#67afff",
+                            borderWidth: 1.5,
+                            borderRadius: 10,
+                            padding: 5,
+                            paddingLeft: 10,
+                        }}
+                        keyboardType="classfee"
+                        placeholder="Input Hall Number"
+                        value={data.classfee}
+                        onChangeText={(val) => handleChangeText("classfee", val)}
+                    ></TextInput>
+                      <Text style={styles.text}>Class Start Date:</Text>
+
+<TextInput
+                        style={{
+                            borderColor: "#67afff",
+                            borderWidth: 1.5,
+                            borderRadius: 10,
+                            padding: 5,
+                            paddingLeft: 10,
+                        }}
+                        keyboardType="startDate"
+                        placeholder="Input Hall Number"
+                        value={data.startDate}
+                        onChangeText={(val) => handleChangeText("startDate", val)}
+                    ></TextInput>
+
+
 
                     <TouchableOpacity
                         style={styles.button}

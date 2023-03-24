@@ -3,7 +3,6 @@ import { StyleSheet, TouchableOpacity, View, Alert, Image, Text, } from 'react-n
 import { useNavigation } from "@react-navigation/native";
 import { Icon } from 'react-native-elements'
 
-
 export default function App() {
 
     const navigation = useNavigation();
@@ -19,28 +18,15 @@ export default function App() {
                     marginTop: 0,
                 }}
             >
-                Class Details Added successfully !!!
+                Class Details Update successfully !!!
             </Text>
             <Image
                 style={{ width: "80%", height: "60%", alignItems: "center", marginTop: -30 }}
-                source={require('../../assets/classSuccess1.gif')} />
+                source={require('../../assets/classSuccess2.gif')} />
             <View >
 
                 <Text>{"\n"}</Text>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate("Add Class Information")}
-                >
-                    <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>
-                        <Icon
-                            name="arrow-left"
-                            size={25}
-                            color="white"
-                        /> &nbsp;
-                        BACK 
-                        
-                    </Text>
-                </TouchableOpacity>
+                
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => navigation.navigate("View Class Info")}

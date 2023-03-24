@@ -48,7 +48,7 @@ export default function LoginPage() {
             });
             if (addDoc) {
                 ToastAndroid.show("Class Details Submitted Successfully!", ToastAndroid.SHORT); //application toast message
-                navigation.navigate("Add classes")
+                navigation.navigate("Add Class Next")
 
             }
         } catch (e) {
@@ -174,6 +174,8 @@ export default function LoginPage() {
                         onChangeText={(val) => handleChangeText("time", val)}
                     ></TextInput>
 
+                   
+
                     <Text style={styles.text}>Hall Number:</Text>
                     {/* input fields  */}
                     <TextInput
@@ -187,7 +189,7 @@ export default function LoginPage() {
                         placeholder="Input Hall Number"
                         onChangeText={(val) => handleChangeText("hallNo", val)}
                     ></TextInput>
-                  
+
                     {/* submit button */}
                     <TouchableOpacity
                         style={styles.button}
