@@ -79,6 +79,10 @@ export default function UserList() {
                             <Text style={styles.text}>Day Of Class : {item.day}</Text>
                             <Text style={styles.text}>Time Duration Of Class : {item.time}</Text>
                             <Text style={styles.text}>Hall Number : {item.hallNo}</Text>
+                            <Text style={styles.text}>Subject Code:{item.subjcode}</Text>
+                            <Text style={styles.text}>Class Admission Fee: {item.classadmFee}</Text>
+                            <Text style={styles.text}>Monthly Class Fee:{item.classfee}</Text>
+                            <Text style={styles.text}>Class Start Date: {item.startDate}</Text>
                             <View
                                 style={{
                                     flex: 1,

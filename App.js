@@ -16,8 +16,10 @@ import addClass from "./screens/classDetails/addClass";
 import addClassNext from "./screens/classDetails/addClassNext";
 import classAddSuccess from "./screens/classDetails/classAddSuccess";
 import updateClassInfo from "./screens/classDetails/updateClassInfo";
+import sucessClassUpdate from "./screens/classDetails/sucessClassUpdate";
 import viewAdminClass from "./screens/classDetails/viewAdminClass";
 import viewClassClient from "./screens/clientClass/viewClassClient";
+import classSplash from "./screens/clientClass/classSplash";
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -43,10 +45,12 @@ export default function App() {
 
 
           {/* Class Details - Piyadali D.S.P. */}
+          <Stack.Screen name="splash class" component={classSplash} />
           <Stack.Screen name="Add Class Information" component={addClass} />
           <Stack.Screen name="Add Class Next" component={addClassNext} />
           <Stack.Screen name="Class Info Add Success" component={classAddSuccess} />
           <Stack.Screen name="Update Class Info" component={updateClassInfo} />
+          <Stack.Screen name="Update success" component={sucessClassUpdate} />
           <Stack.Screen name="View Class Info" component={viewAdminClass} />
           <Stack.Screen name="View Client Class Info" component={viewClassClient} />
 
