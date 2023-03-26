@@ -6,9 +6,13 @@ import {
     FlatList,
     ScrollView,
     ToastAndroid,
+    Button
 } from "react-native";
+import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import * as MailComposer from 'expo-mail-composer';
+import * as Print from 'expo-print';
 import { db } from "../../firebase-config/firebase-config";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 
@@ -17,6 +21,10 @@ export default function UserList() {
     const navigation = useNavigation();
     const DatCollectinRef = collection(db, "Payment"); //firebase databse reference
     const [ignored, forceUpdate] = React.useReducer((x) => x + 1, 0); //the method for refresh functions
+    const [isAvailable, setIsAvailable] = useState(false);
+    const [recipients, setRecipients] = useState([]);
+    const [subject, setSubject] = useState(undefined);
+    const [body, setBody] = useState(undefined);
 
     useEffect(() => {
         //fetch the all data from firebase and set it to usestate, this firebase method
@@ -27,6 +35,31 @@ export default function UserList() {
         };
         getAllData();
     }, [ignored]);
+
+    //Check mailer availble or not
+    useEffect(() => {
+        async function checkAvailability() {
+            const isMailAvailable = await MailComposer.isAvailableAsync();
+            setIsAvailable(isMailAvailable);
+        }
+
+        checkAvailability();
+    }, []);
+
+    //send email with Draft PDF 
+    const sendMail = async () => {
+        const { uri } = await Print.printToFileAsync({
+            html: "<h1>Payment Succefull @NANASA institute center</h1>"
+        });
+
+        //Mail  body with subject body 
+        MailComposer.composeAsync({
+            subject: subject,
+            body: body,
+            recipients: recipients,
+            attachments: [uri]
+        });
+    };
 
     //delete users from datasase
     const deleteUser = async (id) => {
@@ -121,6 +154,22 @@ export default function UserList() {
                                     underlayColor="#0084fffa"
                                 >
                                     <Text style={{ fontSize: 15, color: "#fff" }}>Delete</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={{
+                                        marginTop: 15,
+                                        flex: 0.4,
+                                        backgroundColor: "blue",
+                                        marginHorizontal: 5,
+                                        height: 31,
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: 10,
+                                    }}
+                                    onPress={sendMail}
+                                    underlayColor="#0084fffa"
+                                >
+                                    <Text style={{ fontSize: 15, color: "#fff" }}>Email</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
