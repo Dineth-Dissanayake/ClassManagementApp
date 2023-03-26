@@ -9,6 +9,8 @@ import PaymentSuccess from "./screens/StudentPayment/PaymentSuccess";
 import ViewStdPayDetails from "./screens/AdminStudentPayment/ViewStdPayDetails";
 import UpdateStdPayDetails from "./screens/AdminStudentPayment/UpdateStdPayDetails";
 import PaymentSplash from "./screens/StudentPayment/PaymentSplash";
+import UpdateSucess from "./screens/AdminStudentPayment/UpdateSucess";
+import StdDetailsReport from "./screens/AdminStudentPayment/StdDetailsReport";
 
 
 // IT20153236 - Piyadali D.S.P. - Class Details
@@ -20,6 +22,7 @@ import sucessClassUpdate from "./screens/classDetails/sucessClassUpdate";
 import viewAdminClass from "./screens/classDetails/viewAdminClass";
 import viewClassClient from "./screens/clientClass/viewClassClient";
 import classSplash from "./screens/clientClass/classSplash";
+import StdDetailsReport from "./screens/AdminStudentPayment/StdDetailsReport";
 
 import { StyleSheet, Text } from 'react-native';
 
@@ -41,8 +44,10 @@ export default function App() {
           <Stack.Screen name="std regi pay" component={PaymentRegi} />
           <Stack.Screen name="Add payment" component={Addpayment} />
           <Stack.Screen name="std pay success" component={PaymentSuccess} />
-          <Stack.Screen name="admin update" component={UpdateStdPayDetails} />          
-
+          <Stack.Screen name="admin update" component={UpdateStdPayDetails} />         
+          <Stack.Screen name="stdpay report" component={StdDetailsReport} />
+          <Stack.Screen name=" stdpay update success" component={UpdateSucess} />
+          
 
           {/* Class Details - IT20153236 - Piyadali D.S.P. */}
           <Stack.Screen name="splash class" component={classSplash} />
