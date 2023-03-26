@@ -24,7 +24,7 @@ export default function LoginPage() {
   const [expireDate, setExpireDate] = useState('');
   const [cvc, setCvc] = useState('');
 
- 
+
 
   //inputs handle function
   const handleChangeText = (name, value) => {
@@ -36,28 +36,28 @@ export default function LoginPage() {
     const re = /^[0-9\b]+$/;
     const parentname = /^[a-zA-Z]/;
 
-    if (stdname == "" || cardnumber == "" || expireDate == "" || cvc == ""  ) {
-        ToastAndroid.show("Feild cannot be empty", ToastAndroid.SHORT); //application toast message
+    if (stdname == "" || cardnumber == "" || expireDate == "" || cvc == "") {
+      ToastAndroid.show("Feild cannot be empty", ToastAndroid.SHORT); //application toast message
       return false;
     }
-    else if (cardnumber.length < 16 || studentId.length >16 || !re.test(stid)) {
-        ToastAndroid.show("Invalid Student ID STD length should be 6 character & Number",ToastAndroid.SHORT);
+    else if (cardnumber.length < 16 || studentId.length > 16 || !re.test(stid)) {
+      ToastAndroid.show("Invalid Student ID STD length should be 6 character & Number", ToastAndroid.SHORT);
       return false;
     }
-    else if (cvc.length < 4 || studentId.length > 4|| !re.test(stid)) {
-      ToastAndroid.show("Invalid cvc",ToastAndroid.SHORT);
-    return false;
-  }
+    else if (cvc.length < 4 || studentId.length > 4 || !re.test(stid)) {
+      ToastAndroid.show("Invalid cvc", ToastAndroid.SHORT);
+      return false;
+    }
 
 
-  else {
+    else {
       return true;
     }
   };
 
-//create user function,include firebase methods
-const add_data = async () => {
-    if(validateForm()){
+  //create user function,include firebase methods
+  const add_data = async () => {
+    if (validateForm()) {
       try {
         await addDoc(DatCollectinRef, {
           stdname: data.stdname,
@@ -77,11 +77,11 @@ const add_data = async () => {
         alert(errorCode, errorMessage);
       }
     }
-   
-};
+
+  };
 
 
-  
+
 
   return (
 
