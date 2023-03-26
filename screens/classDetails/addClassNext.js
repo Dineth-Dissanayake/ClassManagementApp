@@ -24,6 +24,24 @@ export default function LoginPage() {
     setData((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const validateForm = () => {
+    const re = /^[0-9\b]+$/;
+    const parentname = /^[a-zA-Z]/;
+
+    if (subjcode == "" || classadmFee == "" || classfee == "" || startDate == ""  ) {
+        ToastAndroid.show("Fields cannot be empty", ToastAndroid.SHORT); //application toast message
+      return false;
+    }
+    else if (subjcode.length < 4 || subjcode.length >4 || !re.test(subjcode)) {
+      ToastAndroid.show("Invalid Subject Code", "Subject code length should be 4 character & Number",ToastAndroid.SHORT);
+    return false;
+  }
+    else if (!re.test(subjcode) || subjcode.length != 10) {
+      ToastAndroid.show("Invalid subject code", "Subject code cannot have more than 10 characters",ToastAndroid.SHORT);
+    return false;
+  }    
+    }  
+
   //Create user function,include firebase methods
   const add_data = async () => {
     try {

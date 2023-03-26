@@ -33,6 +33,35 @@ export default function LoginPage() {
         }, 2000);
     }, []);
 
+    const validateForm = () => {
+        const re = /^[0-9\b]+$/;
+        const parentname = /^[a-zA-Z]/;
+    
+        if (subjectName == "" || grade == "" || classType == "" || hallNo == "" ) {
+            ToastAndroid.show("Fields cannot be empty", ToastAndroid.SHORT); //application toast message
+          return false;
+        }
+        else if (!subjectName.test(subjectName)) {
+            ToastAndroid.show("Invalid Subject Name ", "Subject Name should be characters",ToastAndroid.SHORT);
+          return false;
+        }
+        else if (!grade.test(grade)) {
+            ToastAndroid.show("Invalid grade !", "Grade should be in numbers !",ToastAndroid.SHORT);
+          return false;
+        }
+        else if (!classType.test(classType)) {
+            ToastAndroid.show("Invalid Class Type ", "Should be characters",ToastAndroid.SHORT);
+          return false;
+        }
+        else if (!re.test(day) || hallNo.length != 10) {
+            ToastAndroid.show("Invalid hall number", "Hall number cannot have more than 10 characters",ToastAndroid.SHORT);
+          return false;
+        }          
+       else {
+          return true;
+        }
+      };
+
     //Create user function,include firebase methods
     const add_data = async () => {
         try {
