@@ -21,6 +21,13 @@ export default function LoginPage() {
     const [refreshing, setRefreshing] = React.useState(false);
     const DatCollectinRef = collection(db, "Payment"); //database collection reference
 
+    const [stid, setStid] = useState('');
+  const [stdName, setStdName] = useState('');
+  const [stdemail, setEmail] = useState('');
+  const [stdparentname, setSetparentname] = useState('');
+  const [parentContactNum, setParentContactNum] = useState('');
+ 
+
     //inputs handle function
     const handleChangeText = (name, value) => {
         setData((prevState) => ({ ...prevState, [name]: value }));
@@ -33,32 +40,77 @@ export default function LoginPage() {
         }, 2000);
     }, []);
 
+    
+
+    const validateForm = () => {
+        const semail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const re = /^[0-9\b]+$/;
+        const parentname = /^[a-zA-Z]/;
+    
+        if (stid == "" || stdName == "" || stdemail == "" || stdparentname == "" || parentContactNum == "" ) {
+            ToastAndroid.show("Feild cannot be empty", ToastAndroid.SHORT); //application toast message
+          return false;
+        }
+        else if (stid.length < 7 || studentId.length >7 || !re.test(stid)) {
+            ToastAndroid.show("Invalid Student ID STD length should be 6 character & Number",ToastAndroid.SHORT);
+          return false;
+        }
+
+        else if (!stdName.test(stdName)) {
+            ToastAndroid.show("Invalid Student student Name There should be character",ToastAndroid.SHORT);
+          return false;
+        }
+
+        else if (!stdemail.test(semail)) {
+            ToastAndroid.show("Invalid email address Please enter valid email address !",ToastAndroid.SHORT);
+          return false;
+        }
+
+        else if (!stdparentname.test(parentname)) {
+            ToastAndroid.show("Invalid Parent Name There should be character",ToastAndroid.SHORT);
+          return false;
+        }
+        else if (!re.test(parentContactNum) || parentContactNum.length != 10) {
+            ToastAndroid.show("Invalid Contact Number There should be a valid pattern for contact number",ToastAndroid.SHORT);
+          return false;
+        }
+       else {
+          return true;
+        }
+      };
+
+    
+
 
 
     //create user function,include firebase methods
     const add_data = async () => {
-        try {
-            await addDoc(DatCollectinRef, {
-                stid: data.stid,
-                stdName: data.stdName,
-                stdphoneNu: data.stdphoneNu,
-                stdemail: data.stdemail,
-                stdparentname: data.stdparentname,
-                parentContactNum: data.parentContactNum,
-
-
-            });
-            if (addDoc) {
-                ToastAndroid.show("Your payment successfull!", ToastAndroid.SHORT); //application toast message
-                navigation.navigate("Add payment")
-
-
+        if(validateForm()){
+            try {
+                await addDoc(DatCollectinRef, {
+                    stid: data.stid,
+                    stdName: data.stdName,
+                    stdphoneNu: data.stdphoneNu,
+                    stdemail: data.stdemail,
+                    stdparentname: data.stdparentname,
+                    parentContactNum: data.parentContactNum,
+    
+    
+                });
+                if (addDoc) {
+                    ToastAndroid.show("Your payment successfull!", ToastAndroid.SHORT); //application toast message
+                    navigation.navigate("Add payment")
+    
+    
+                }
+            } catch (e) {
+                //error handling
+                
+    
             }
-        } catch (e) {
-            //error handling
-            ToastAndroid.show("You cant submit Empty form", ToastAndroid.SHORT); //application toast message
 
         }
+       
     };
 
     return (

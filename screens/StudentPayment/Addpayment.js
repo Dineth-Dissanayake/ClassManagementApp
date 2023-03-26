@@ -19,31 +19,69 @@ export default function LoginPage() {
   const navigation = useNavigation();
   const DatCollectinRef = collection(db, "Payment"); //database collection reference
 
+  const [stdname, setStdname] = useState('');
+  const [cardnumber, setCardnumber] = useState('');
+  const [expireDate, setExpireDate] = useState('');
+  const [cvc, setCvc] = useState('');
+
+ 
+
   //inputs handle function
   const handleChangeText = (name, value) => {
     setData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  //create user function,include firebase methods
-  const add_data = async () => {
-    try {
-      await addDoc(DatCollectinRef, {
-        stdname: data.stdname,
-        cardnumber: data.cardnumber,
-        expireDate: data.expireDate,
-        cvc: data.cvc,
-      });
-      if (addDoc) {
-        ToastAndroid.show("Your payment successfull!", ToastAndroid.SHORT); //application toast message
-      }
-    } catch (e) {
-      //error handling
-      console.error("Error adding document: ", e);
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorCode, errorMessage);
+  const validateForm = () => {
+    const semail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[0-9\b]+$/;
+    const parentname = /^[a-zA-Z]/;
+
+    if (stdname == "" || cardnumber == "" || expireDate == "" || cvc == ""  ) {
+        ToastAndroid.show("Feild cannot be empty", ToastAndroid.SHORT); //application toast message
+      return false;
+    }
+    else if (cardnumber.length < 16 || studentId.length >16 || !re.test(stid)) {
+        ToastAndroid.show("Invalid Student ID STD length should be 6 character & Number",ToastAndroid.SHORT);
+      return false;
+    }
+    else if (cvc.length < 4 || studentId.length > 4|| !re.test(stid)) {
+      ToastAndroid.show("Invalid cvc",ToastAndroid.SHORT);
+    return false;
+  }
+
+
+  else {
+      return true;
     }
   };
+
+//create user function,include firebase methods
+const add_data = async () => {
+    if(validateForm()){
+      try {
+        await addDoc(DatCollectinRef, {
+          stdname: data.stdname,
+          cardnumber: data.cardnumber,
+          expireDate: data.expireDate,
+          cvc: data.cvc,
+        });
+        if (addDoc) {
+          ToastAndroid.show("Your payment successfull!", ToastAndroid.SHORT); //application toast message
+          navigation.navigate("std pay success")
+        }
+      } catch (e) {
+        //error handling
+        console.error("Error adding document: ", e);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      }
+    }
+   
+};
+
+
+  
 
   return (
 
