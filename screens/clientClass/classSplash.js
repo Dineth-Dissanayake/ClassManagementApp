@@ -32,11 +32,11 @@ export default class Myapp extends Component<{}>
                 <View style={styles.SplashScreen_ChildView}>
 
                     <Image
-                        style={{ width: "100%", height: "50%", alignItems: "center", resizeMode: 'contain'}}
-                        source={require('../../assets/clsSplash2.gif')} />
+                        style={{ width: "100%", height: "50%", alignItems: "center", resizeMode: 'contain', marginTop: '-70'}}
+                        source={require('../../assets/clsSplash.gif')} />
                     <Image
                         style={{ width: "100%", height: "70%", alignItems: "center", resizeMode: 'contain' }}
-                        source={require('../../assets/clsSplash.gif')} />
+                        source={require('../../assets/clsSplash2.gif')} />
 
                 </View>
             </View>)
